@@ -29,7 +29,7 @@ class LoginController extends Controller
                         try {
                             $api_token = sha1($login->id_user.time());
 
-                              $user = User::where('id',$login->id_user)->get();
+                             
 
                               $create_token = User::where('id', $login->id_user)->update(['api_token' => $api_token]);
                               
@@ -38,10 +38,10 @@ class LoginController extends Controller
                               $res['data'] =  $login;
                               $res['api_token'] =  $api_token;
                             
-                              $user->api_token =  $api_token;
-                              var_dump($user);die();
+                              $login->api_token =  $api_token;
+                              
 
-                              $user->save();
+                              $login->save();
                               return response($res, 200);
  
  
