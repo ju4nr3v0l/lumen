@@ -34,4 +34,12 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function billetera()
+    {
+        return $this->hasMany('App\Billetera', 'id', 'codigoUsuarioPk');
+    }
 }
